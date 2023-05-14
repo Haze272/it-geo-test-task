@@ -1,0 +1,9 @@
+.note-menu {
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+}

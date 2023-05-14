@@ -1,0 +1,10 @@
+<nav class="note-menu">
+  <button>+ Заметка</button>
+  <input type="text" placeholder="Поиск...">
+  <p>Сортировать по убыванию даты</p>
+
+  <div class="note-menu__list">
+    <app-note-item *ngFor="let note of noteList" [note]="note"></app-note-item>
+  </div>
+</nav>
+
