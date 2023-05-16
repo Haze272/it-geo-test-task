@@ -4,11 +4,29 @@
 >
 
   <button (click)="addNote()">+ Заметка</button>
-  <input type="text" placeholder="Поиск...">
-  <p>Сортировать по убыванию даты</p>
+  <input
+    class="note-menu__search"
+    type="text"
+    placeholder="Поиск..."
+    [(ngModel)]="headerNameToSearch"
+  >
+  <p>Сортировать по
+    <select
+      name="sort-type"
+      id=""
+      (ngModelChange)="onSelection()"
+      [(ngModel)]="selectedSortType"
+    >
+      <option [value]="'desc-date'">по убыванию даты</option>
+      <option [value]="'asc-date'">по возрастанию даты</option>
+    </select>
+  </p>
 
   <div class="note-menu__list">
-    <app-note-item *ngFor="let note of noteList" [note]="note"></app-note-item>
+    <app-note-item
+      *ngFor="let note of noteList | noteFilter: headerNameToSearch"
+      [note]="note"
+    ></app-note-item>
   </div>
 </nav>
 <div

@@ -1,13 +1,39 @@
 .note-item {
   border: 1px solid #262626;
   padding: 10px;
-  display: block;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+
+  &__content {
+    width: 80%;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 
   &:hover {
     background-color: #c7c7c7;
+
+    .note-item__delete-btn {
+      display: block
+    }
   }
 
   &.is-active {
     background-color: #a1a1a1;
+  }
+
+  &__delete-btn {
+    display: none;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
   }
 }

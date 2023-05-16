@@ -12,6 +12,8 @@ export class NoteMenuComponent implements OnInit, OnDestroy{
   noteList: Note[] = [];
   noteListSub!: Subscription;
   isClosed: boolean = false;
+  headerNameToSearch: string = '';
+  selectedSortType!: 'desc-date' | 'asc-date';
 
   constructor(private notesService: NotesService) {
   }
@@ -35,4 +37,11 @@ export class NoteMenuComponent implements OnInit, OnDestroy{
     this.isClosed = $event;
   }
 
+  onSelection() {
+    if (this.selectedSortType === 'desc-date') {
+      this.noteList.sort((a, b) => Number(new Date(a.dateCreated)) - Number(new Date(b.dateCreated)))
+    } else {
+      this.noteList.sort((a, b) => Number(new Date(b.dateCreated)) - Number(new Date(a.dateCreated)))
+    }
+  }
 }

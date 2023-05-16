@@ -9,6 +9,7 @@ import { NoteEmptyComponent } from './components/note-empty/note-empty.component
 import { NoteItemComponent } from './components/note-menu/note-item/note-item.component';
 import {FormsModule} from "@angular/forms";
 import { MenuControlComponent } from './components/note-menu/menu-control/menu-control.component';
+import { NoteFilterPipe } from './pipes/note-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MenuControlComponent } from './components/note-menu/menu-control/menu-c
     NotePageComponent,
     NoteEmptyComponent,
     NoteItemComponent,
-    MenuControlComponent
+    MenuControlComponent,
+    NoteFilterPipe,
   ],
   imports: [
     BrowserModule,

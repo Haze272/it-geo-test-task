@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from "rxjs";
 import {Note} from "../models/note.model";
+import {Router} from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class NotesService {
   private _notes = new BehaviorSubject<Note[]>([]);
   notes: Note[] = new Array<Note>();
 
-  constructor() {
+  constructor(private router: Router) {
     this._notes = new BehaviorSubject<Note[]>(new Array<Note>())
     if (localStorage.getItem('notes')) {
       this.notes = JSON.parse(localStorage.getItem('notes')!);
@@ -34,8 +35,8 @@ export class NotesService {
 
     const note: Note = {
       id: this.generateId(),
-      header: 'govno',
-      content: 'ААААА',
+      header: '<Заголовок>',
+      content: 'Введите текст, перейдя в режим редактирования!',
       dateCreated: new Date()
     }
     if (localStorage.getItem('notes') === null) {
@@ -48,6 +49,7 @@ export class NotesService {
       this._notes.next(this.notes)
       localStorage.setItem('notes', JSON.stringify(this.notes));
     }
+    this.router.navigate(['/note/' + note.id])
   }
 
   deleteNote(noteId: number) {

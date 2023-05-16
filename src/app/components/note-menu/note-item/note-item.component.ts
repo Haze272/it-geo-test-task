@@ -11,4 +11,9 @@ export class NoteItemComponent {
   @Input() note: Note | undefined;
   constructor(private notesService: NotesService) {
   }
+
+  deleteNote($event: Event) {
+    $event.preventDefault();
+    this.notesService.deleteNote(this.note!.id);
+  }
 }
