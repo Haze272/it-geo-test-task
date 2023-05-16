@@ -1,16 +1,16 @@
 # ItGeoTestTask - Тестовое задание Angular Front-End
 ### Результат:
-![sort-demo]([http://url/to/img.png](https://github.com/Haze272/it-geo-test-task/blob/master/screenshots/app-result.png))
+![sort-demo]([http://url/to/img.png](screenshots/app-result.png))
 
 Необходимо реализовать простой редактор заметок на Angular с функционалом создания,
 удаления, редактирования, поиска и сортировки заметок.
 
 Приложение представляет из себя двухколоночную раскладку, где слева показан список заметок,
 а справа контент выбранной в списке заметки. Схематично приложение должно выглядеть так:
-![app-demo]([http://url/to/img.png](https://github.com/Haze272/it-geo-test-task/blob/master/screenshots/app-demo.png))
+![app-demo]([http://url/to/img.png](screenshots/app-demo.png))
 
 Выбор варианта сортировки:
-![sort-demo]([http://url/to/img.png](https://github.com/Haze272/it-geo-test-task/blob/master/screenshots/sort-demo.png))
+![sort-demo]([http://url/to/img.png](screenshots/sort-demo.png))
 
 ## Функциональные требования
 
