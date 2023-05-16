@@ -13,11 +13,13 @@
         [(ngModel)]="note.header"
         class="note-editor__input-header"
       >
-      <input
-        type="textarea"
-        [(ngModel)]="note.content"
+      <textarea
         class="note-editor__input-content"
-      >
+        [(ngModel)]="note.content"
+        name=""
+        id=""
+        cols="30"
+        rows="10"></textarea>
     </div>
   </ng-template>
   <ng-template #elseBlock>

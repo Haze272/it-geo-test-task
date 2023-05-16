@@ -2,10 +2,16 @@
 
 .note-page {
   padding: 10px 25px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .note-editor {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   input {
     padding: 0;
@@ -20,6 +26,8 @@
   &__input-content {
     @include adaptiv-font(21, 16);
     color: var(--main-text);
+    resize: none;
+    height: 100%;
   }
 }
 
