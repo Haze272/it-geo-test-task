@@ -1,4 +1,7 @@
-<a [routerLink]="['/note/' + note?.id]">
+<a
+  [routerLink]="['/note/' + note?.id]"
+  class="note-item"
+  routerLinkActive="is-active"
+>
   <span>{{note?.header}}</span>
 </a>
-

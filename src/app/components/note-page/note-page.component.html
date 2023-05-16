@@ -1,1 +1,35 @@
-<h1>Заметка №{{id}}</h1>
+<div class="note-page">
+
+  <div *ngIf="isEditModeEnabled; then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <div class="note-page__control-panel">
+      <button (click)="saveEdited()">Завершить редактирование</button>
+      <button (click)="deleteNote()">Удалить</button>
+    </div>
+
+    <div class="note-editor">
+      <input
+        type="text"
+        [(ngModel)]="note.header"
+        class="note-editor__input-header"
+      >
+      <input
+        type="textarea"
+        [(ngModel)]="note.content"
+        class="note-editor__input-content"
+      >
+    </div>
+  </ng-template>
+  <ng-template #elseBlock>
+    <div class="note-page__control-panel">
+      <button (click)="isEditModeEnabled=!isEditModeEnabled">Редактировать</button>
+      <button (click)="deleteNote()">Удалить</button>
+    </div>
+    <div class="note-content">
+      <h1>{{note.header}}</h1>
+      <p>{{note.content}}</p>
+    </div>
+  </ng-template>
+
+</div>
+

@@ -1,9 +1,31 @@
 .note-menu {
   display: flex;
   flex-direction: column;
+  width: 250px;
+  overflow: hidden;
+  transition: all .2s ease-in-out;
 
   &__list {
     display: flex;
     flex-direction: column;
+    gap: 15px;
+    height: 70vh;
+    overflow-y: auto;
+  }
+
+  &.closed {
+    width: 0;
+  }
+}
+
+.note-menu__control {
+  position: absolute;
+  left: 269px;
+  top: 50%;
+  transition: all .2s ease-in-out;
+
+  &.closed {
+
+    left: 0;
   }
 }

@@ -1,5 +1,9 @@
-<nav class="note-menu">
-  <button>+ Заметка</button>
+<nav
+  class="note-menu"
+  [ngClass]="isClosed ? 'closed' : ''"
+>
+
+  <button (click)="addNote()">+ Заметка</button>
   <input type="text" placeholder="Поиск...">
   <p>Сортировать по убыванию даты</p>
 
@@ -7,4 +11,10 @@
     <app-note-item *ngFor="let note of noteList" [note]="note"></app-note-item>
   </div>
 </nav>
+<div
+  class="note-menu__control"
+  [ngClass]="isClosed ? 'closed' : ''"
+>
+  <app-menu-control (close)="onToggledMenu($event)"></app-menu-control>
+</div>
 

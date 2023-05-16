@@ -1,34 +1,38 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {NotesService} from "../../services/notes.service";
 import {Note} from "../../models/note.model";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-note-menu',
   templateUrl: './note-menu.component.html',
   styleUrls: ['./note-menu.component.scss']
 })
-export class NoteMenuComponent {
-  noteList: Note[] = [
-    {
-      id: 1,
-      header: "Заголовок заметки 1",
-      content: "Lorem ipsum dolor sit amet",
-      dateCreated: new Date()
-    },
-    {
-      id: 2,
-      header: "Заголовок заметки 2",
-      content: "Lorem ipsum dolor sit amet",
-      dateCreated: new Date()
-    },
-    {
-      id: 3,
-      header: "Заголовок заметки 3",
-      content: "Lorem ipsum dolor sit amet",
-      dateCreated: new Date()
-    },
-  ];
-  constructor(notesService: NotesService) {
+export class NoteMenuComponent implements OnInit, OnDestroy{
+  noteList: Note[] = [];
+  noteListSub!: Subscription;
+  isClosed: boolean = false;
+
+  constructor(private notesService: NotesService) {
+  }
+
+  ngOnInit() {
+    this.noteListSub = this.notesService.getNotes().subscribe((data: Note[]) => {
+      this.noteList = data;
+      console.log('Change detected', data)
+    })
+  }
+
+  addNote() {
+    this.notesService.addNote()
+  }
+
+  ngOnDestroy() {
+    this.noteListSub.unsubscribe();
+  }
+
+  onToggledMenu($event: boolean) {
+    this.isClosed = $event;
   }
 
 }

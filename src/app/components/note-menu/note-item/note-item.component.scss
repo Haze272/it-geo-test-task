@@ -1,0 +1,13 @@
+.note-item {
+  border: 1px solid #262626;
+  padding: 10px;
+  display: block;
+
+  &:hover {
+    background-color: #c7c7c7;
+  }
+
+  &.is-active {
+    background-color: #a1a1a1;
+  }
+}

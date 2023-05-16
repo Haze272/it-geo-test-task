@@ -1,0 +1,28 @@
+@import "/src/adaptivFont";
+
+.note-page {
+  padding: 10px 25px;
+}
+
+.note-editor {
+  width: 100%;
+
+  input {
+    padding: 0;
+  }
+
+  &__input-header {
+    color: var(--main-text);
+    font-weight: 800;
+    @include adaptiv-font(48, 36);
+  }
+
+  &__input-content {
+    @include adaptiv-font(21, 16);
+    color: var(--main-text);
+  }
+}
+
+.note-content {
+  width: 100%;
+}

@@ -7,6 +7,8 @@ import { NoteMenuComponent } from './components/note-menu/note-menu.component';
 import { NotePageComponent } from './components/note-page/note-page.component';
 import { NoteEmptyComponent } from './components/note-empty/note-empty.component';
 import { NoteItemComponent } from './components/note-menu/note-item/note-item.component';
+import {FormsModule} from "@angular/forms";
+import { MenuControlComponent } from './components/note-menu/menu-control/menu-control.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { NoteItemComponent } from './components/note-menu/note-item/note-item.co
     NoteMenuComponent,
     NotePageComponent,
     NoteEmptyComponent,
-    NoteItemComponent
+    NoteItemComponent,
+    MenuControlComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
